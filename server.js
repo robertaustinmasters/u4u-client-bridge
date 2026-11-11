@@ -17,12 +17,8 @@ const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
 let auth;
 try {
     if (fs.existsSync('./google-credentials.json')) {
-        const creds = JSON.parse(fs.readFileSync('./google-credentials.json', 'utf8'));
         auth = new google.auth.GoogleAuth({
-            credentials: {
-                client_email: creds.client_email,
-                private_key: creds.private_key,
-            },
+            keyFile: './google-credentials.json',
             scopes: ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/documents'],
         });
     }

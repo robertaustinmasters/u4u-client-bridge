@@ -1,0 +1,17 @@
+﻿services:
+  - type: web
+    name: u4u-client-bridge
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NOTION_API_KEY
+        sync: false
+      - key: NOTION_DATABASE_ID
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: GOOGLE_SOW_TEMPLATE_ID
+        sync: false
